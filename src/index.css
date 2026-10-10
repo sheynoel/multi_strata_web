@@ -1,0 +1,409 @@
+@import "tailwindcss";
+
+/* Chronograph dial: black lacquer ground, applied gold indices, ivory dial printing.
+   Gold is metal, not light; only the orb is allowed to glow. */
+@theme {
+  --font-display: "Archivo Variable", "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Archivo Variable", "Archivo", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, monospace;
+
+  --color-dial-950: #0b0b0c;
+  --color-dial-900: #111112;
+  --color-dial-850: #151515;
+  --color-dial-800: #1b1a19;
+  --color-dial-700: #24221f;
+
+  --color-ivory: #f2efe8;
+  --color-ivory-dim: #c9c4b9;
+  --color-stone: #9c968a;
+
+  --color-gold: #c9a24c;
+  --color-gold-bright: #e3c278;
+  --color-gold-pale: #efdfb0;
+  --color-gold-deep: #8a6d2e;
+
+  --color-line: rgb(242 239 232 / 0.09);
+  --color-line-strong: rgb(242 239 232 / 0.17);
+  --color-alert: #e8806e;
+
+  --radius-panel: 10px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@layer base {
+  :root {
+    /* Legacy aliases still read by a few components. */
+    --bg-base: var(--color-dial-950);
+    --bg-surface: var(--color-dial-900);
+    --bg-elevated: var(--color-dial-800);
+    --border-gold: rgb(201 162 76 / 0.4);
+    --gold-300: var(--color-gold-bright);
+    --gold-400: var(--color-gold);
+    --gold-500: var(--color-gold-deep);
+    --text-primary: var(--color-ivory);
+    --text-heading: var(--color-ivory);
+    --text-body: var(--color-ivory-dim);
+    --text-muted: var(--color-stone);
+
+    color-scheme: dark;
+    accent-color: var(--color-gold);
+  }
+
+  html {
+    background-color: var(--color-dial-950);
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    font-stretch: 100%;
+    background-color: var(--color-dial-950);
+    color: var(--color-ivory);
+    overflow-x: hidden;
+    caret-color: var(--color-gold-bright);
+    font-feature-settings: "ss01" 0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+    font-weight: 620;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: rgb(201 162 76 / 0.32);
+    color: var(--color-gold-pale);
+  }
+
+  ::placeholder {
+    color: var(--color-stone);
+    opacity: 1;
+  }
+
+  a {
+    text-underline-offset: 0.22em;
+    text-decoration-thickness: 1px;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-gold-bright);
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  button:not(:disabled),
+  [role="button"],
+  a[href] {
+    cursor: pointer;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    filter: invert(0.75) sepia(0.4) saturate(2) hue-rotate(5deg);
+    cursor: pointer;
+  }
+}
+
+/* Small-caps dial printing used for section labels and spec captions. */
+@utility dial-print {
+  font-size: 0.72rem;
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--color-ivory-dim);
+}
+
+/* A polished applied index: short horizontal gold bar used as a marker. */
+@utility index-bar {
+  display: inline-block;
+  width: 14px;
+  height: 3px;
+  border-radius: 1px;
+  background: linear-gradient(180deg, #f0dba0 0%, #c9a24c 55%, #8a6d2e 100%);
+  box-shadow: 0 1px 0 rgb(0 0 0 / 0.6);
+  flex-shrink: 0;
+}
+
+/* Applied-metal fill for the primary action: polished top edge, darker lower edge. */
+@utility metal-plate {
+  background-color: var(--color-gold);
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 0.16) 0%, rgb(255 255 255 / 0) 45%, rgb(0 0 0 / 0.1) 100%);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.4),
+    inset 0 -1px 0 rgb(0 0 0 / 0.25),
+    0 1px 2px rgb(0 0 0 / 0.5),
+    0 8px 20px -10px rgb(0 0 0 / 0.9);
+}
+
+/* Recessed sub-register / panel surface. */
+@utility recess {
+  background-color: var(--color-dial-900);
+  box-shadow:
+    inset 0 1px 2px rgb(0 0 0 / 0.55),
+    inset 0 0 0 1px var(--color-line);
+}
+
+@utility tabular {
+  font-variant-numeric: tabular-nums lining-nums;
+}
+
+/* Sunray brushing: fine radial grain that catches light around the dial centre. */
+.sunray {
+  background:
+    radial-gradient(circle at 50% 42%, rgb(255 255 255 / 0.05) 0%, rgb(255 255 255 / 0) 55%),
+    repeating-conic-gradient(from 0deg at 50% 50%, rgb(255 255 255 / 0.022) 0deg 0.5deg, rgb(255 255 255 / 0) 0.5deg 1.5deg),
+    radial-gradient(circle at 50% 50%, #161616 0%, #0e0e0f 62%, #0b0b0c 100%);
+}
+
+/* Social buttons in the footer: matte bezels, gold on hover. */
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 9999px;
+  border: 1px solid var(--color-line-strong);
+  background-color: var(--color-dial-900);
+  color: var(--color-ivory-dim);
+  transition: color 200ms var(--ease-out-expo), border-color 200ms var(--ease-out-expo), transform 200ms var(--ease-out-expo);
+}
+
+.social-btn:hover {
+  border-color: rgb(201 162 76 / 0.6);
+  color: var(--color-gold-bright);
+}
+
+.social-btn:active {
+  transform: translateY(1px);
+}
+
+/* Solid metal gold for brand emphasis (no gradient text). */
+.brand-gradient-text {
+  color: var(--color-gold-bright);
+}
+
+/* Entrance used by overlays (modals, drawer, toast). */
+.animate-in {
+  animation: ms-enter 260ms var(--ease-out-expo) both;
+}
+
+@keyframes ms-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.99);
+  }
+}
+
+/* Rotations */
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes reverse-slow-spin {
+  from { transform: rotate(360deg); }
+  to { transform: rotate(0deg); }
+}
+
+.animate-slow-spin { animation: slow-spin 36s linear infinite; }
+.animate-reverse-spin { animation: reverse-slow-spin 48s linear infinite; }
+
+/* Chronograph seconds hand: one revolution per minute, the page's clock. */
+.animate-seconds {
+  animation: slow-spin 60s linear infinite;
+  transform-origin: 260px 260px;
+}
+
+/* Chronograph run: while Jarvis speaks, each applied index lights in turn. */
+@keyframes index-run {
+  0%, 100% { opacity: 0; }
+  12% { opacity: 1; }
+  45% { opacity: 0; }
+}
+
+.animate-index-run {
+  animation: index-run 1.2s linear infinite;
+}
+
+/* The logo holds still; the orb and the seconds hand are the page's only continuous motion. */
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 48s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee:hover,
+.group:hover .animate-marquee,
+.group:focus-within .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-dial-950);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2b2925;
+  border-radius: 9999px;
+  border: 2px solid var(--color-dial-950);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-gold-deep);
+}
+
+html {
+  scrollbar-color: #2b2925 var(--color-dial-950);
+  scrollbar-width: thin;
+}
+
+/* Orb halo and ignition, motion only when allowed. */
+@media (prefers-reduced-motion: no-preference) {
+  @keyframes coreGlowPulse {
+    0%, 100% { opacity: 0.75; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.04); }
+  }
+
+  .animate-core-tight-glow {
+    animation: coreGlowPulse 3s ease-in-out infinite;
+  }
+
+  @keyframes centerCoreDotPulse {
+    0%, 100% { opacity: 0.85; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
+  }
+
+  .animate-center-dot-pulse {
+    animation: centerCoreDotPulse 2s ease-in-out infinite;
+  }
+
+  @keyframes ignitionPulse {
+    0%, 100% { filter: drop-shadow(0 0 2px rgb(227 194 120 / 0.5)); }
+    50% { filter: drop-shadow(0 0 6px rgb(239 223 176 / 0.75)); }
+  }
+
+  .animate-ignition {
+    animation: ignitionPulse 0.9s ease-in-out infinite;
+  }
+}
+
+/* Hero headline reveal: words rise out of a mask. */
+@media (prefers-reduced-motion: no-preference) {
+  html.js .hero-word-mask {
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    padding-bottom: 0.1em;
+    margin-bottom: -0.1em;
+  }
+
+  html.js .hero-word-inner {
+    display: inline-block;
+    transform: translateY(105%);
+  }
+
+  @keyframes heroWordReveal {
+    to { transform: translateY(0); }
+  }
+
+  .animate-hero-reveal {
+    animation: heroWordReveal 1s var(--ease-out-expo) forwards;
+  }
+}
+
+@keyframes goldCursorBlink {
+  0%, 48% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+
+.animate-gold-cursor {
+  animation: goldCursorBlink 0.75s steps(1) infinite;
+}
+
+/* Sequential telemetry lines */
+@keyframes telemetryLineReveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+.animate-telemetry-seq-1 { animation: telemetryLineReveal 0.6s var(--ease-out-expo) 0.1s both; }
+.animate-telemetry-seq-2 { animation: telemetryLineReveal 0.6s var(--ease-out-expo) 0.7s both; }
+.animate-telemetry-seq-3 { animation: telemetryLineReveal 0.6s var(--ease-out-expo) 1.3s both; }
+
+/* Underline stamped on a value that just changed (billing toggle, scenario switch). */
+@keyframes value-stamp {
+  from { transform: scaleX(0); opacity: 1; }
+  60% { transform: scaleX(1); opacity: 1; }
+  to { transform: scaleX(1); opacity: 0; }
+}
+
+.animate-value-stamp {
+  transform-origin: left;
+  animation: value-stamp 900ms var(--ease-out-expo) both;
+}
+
+/* Workflow showcase: a wire draws in gold, with a bright pulse travelling ahead of it. */
+.wf-progress {
+  transition: stroke-dashoffset 900ms var(--ease-out-expo);
+}
+
+@keyframes wf-comet {
+  from { stroke-dashoffset: 0.06; opacity: 1; }
+  85% { opacity: 1; }
+  to { stroke-dashoffset: -1; opacity: 0; }
+}
+
+.wf-comet {
+  animation: wf-comet 900ms var(--ease-out-expo) forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Dial diameter: fills the phone width, and on desktop shares the row with the headline halves
+   while staying short enough that the CTAs remain in the first viewport. */
+.dial-size {
+  width: min(86vw, 25rem, max(16rem, calc(100dvh - 26rem)));
+}
+
+@media (min-width: 1280px) {
+  .dial-size {
+    width: min(32vw, 31rem, max(20rem, calc(100dvh - 22rem)));
+  }
+}

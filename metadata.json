@@ -1,0 +1,8 @@
+{
+  "name": "Remix Multistrata AI  FINAL test",
+  "description": "Multistrata AI (multistrata.dev) - Intelligence. Elevated. Modern Obsidian Gold dark-mode SaaS platform delivering multi-layered autonomous process intelligence.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

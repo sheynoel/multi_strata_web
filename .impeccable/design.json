@@ -1,0 +1,176 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-10T00:00:00Z",
+  "title": "Design System: MultiStrata AI",
+  "extensions": {
+    "colorMeta": {
+      "dial-950": { "role": "neutral", "displayName": "Black Lacquer", "canonical": "#0b0b0c", "tonalRamp": ["#0b0b0c", "#111112", "#151515", "#1b1a19", "#24221f", "#2b2925", "#3a3833", "#55524b"] },
+      "dial-900": { "role": "neutral", "displayName": "Dial Plate", "canonical": "#111112", "tonalRamp": ["#0b0b0c", "#111112", "#151515", "#1b1a19", "#24221f", "#2b2925", "#3a3833", "#55524b"] },
+      "dial-850": { "role": "neutral", "displayName": "Raised Plate", "canonical": "#151515", "tonalRamp": ["#0b0b0c", "#111112", "#151515", "#1b1a19", "#24221f", "#2b2925", "#3a3833", "#55524b"] },
+      "dial-800": { "role": "neutral", "displayName": "Raised Plate (featured)", "canonical": "#1b1a19", "tonalRamp": ["#0b0b0c", "#111112", "#151515", "#1b1a19", "#24221f", "#2b2925", "#3a3833", "#55524b"] },
+      "dial-700": { "role": "neutral", "displayName": "Raised Segment", "canonical": "#24221f", "tonalRamp": ["#0b0b0c", "#111112", "#151515", "#1b1a19", "#24221f", "#2b2925", "#3a3833", "#55524b"] },
+      "ivory": { "role": "neutral", "displayName": "Dial Ivory", "canonical": "#f2efe8", "tonalRamp": ["#2a2925", "#47453f", "#6b675e", "#9c968a", "#b5b0a4", "#c9c4b9", "#dedad1", "#f2efe8"] },
+      "ivory-dim": { "role": "neutral", "displayName": "Dim Ivory", "canonical": "#c9c4b9", "tonalRamp": ["#2a2925", "#47453f", "#6b675e", "#9c968a", "#b5b0a4", "#c9c4b9", "#dedad1", "#f2efe8"] },
+      "stone": { "role": "neutral", "displayName": "Stone", "canonical": "#9c968a", "tonalRamp": ["#2a2925", "#47453f", "#6b675e", "#9c968a", "#b5b0a4", "#c9c4b9", "#dedad1", "#f2efe8"] },
+      "gold": { "role": "primary", "displayName": "Applied Gold", "canonical": "#c9a24c", "tonalRamp": ["#2e2410", "#54421c", "#8a6d2e", "#ab873b", "#c9a24c", "#e3c278", "#efdfb0", "#f8f0d8"] },
+      "gold-bright": { "role": "primary", "displayName": "Polished Gold", "canonical": "#e3c278", "tonalRamp": ["#2e2410", "#54421c", "#8a6d2e", "#ab873b", "#c9a24c", "#e3c278", "#efdfb0", "#f8f0d8"] },
+      "gold-pale": { "role": "primary", "displayName": "Pale Gold", "canonical": "#efdfb0", "tonalRamp": ["#2e2410", "#54421c", "#8a6d2e", "#ab873b", "#c9a24c", "#e3c278", "#efdfb0", "#f8f0d8"] },
+      "gold-deep": { "role": "primary", "displayName": "Shadowed Gold", "canonical": "#8a6d2e", "tonalRamp": ["#2e2410", "#54421c", "#8a6d2e", "#ab873b", "#c9a24c", "#e3c278", "#efdfb0", "#f8f0d8"] },
+      "line": { "role": "neutral", "displayName": "Printed Track", "canonical": "rgb(242 239 232 / 0.09)" },
+      "line-strong": { "role": "neutral", "displayName": "Printed Track (strong)", "canonical": "rgb(242 239 232 / 0.17)" },
+      "alert": { "role": "error", "displayName": "Alert", "canonical": "#e8806e", "tonalRamp": ["#3a1a14", "#5e2a21", "#8a3e30", "#b55543", "#d46b58", "#e8806e", "#f2a99b", "#fad6ce"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display (hero dial print)", "purpose": "The hero line only, split either side of the dial. Always the largest step." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2s, capped at 2.75rem, width 92%." },
+      "title": { "displayName": "Title", "purpose": "h3s, tier names, console titles." },
+      "numeral": { "displayName": "Register numeral", "purpose": "KPI sub-register readouts; tabular lining figures." },
+      "body-lead": { "displayName": "Body lead", "purpose": "Section intros, 52-60ch." },
+      "body": { "displayName": "Body", "purpose": "Card copy, bullets, forms." },
+      "label": { "displayName": "Dial print", "purpose": "Small-caps margin labels and captions, ivory-dim, preceded by an applied index." },
+      "mono": { "displayName": "Mono", "purpose": "Code and log lines only: console URL, stream log, quorum readouts, model id." }
+    },
+    "shadows": [
+      { "name": "applied-metal", "value": "inset 0 1px 0 rgb(255 255 255 / 0.4), inset 0 -1px 0 rgb(0 0 0 / 0.25), 0 1px 2px rgb(0 0 0 / 0.5), 0 8px 20px -10px rgb(0 0 0 / 0.9)", "purpose": "Primary button and toggle thumb, over gold with a top-light gradient (rgb(255 255 255 / 0.16) 0% to transparent 45% to rgb(0 0 0 / 0.1) 100%)." },
+      { "name": "recess", "value": "inset 0 1px 2px rgb(0 0 0 / 0.55), inset 0 0 0 1px rgb(242 239 232 / 0.09)", "purpose": "Sub-registers, segment tracks, toggle track, log wells, on dial-900." },
+      { "name": "raised-segment", "value": "inset 0 1px 0 rgb(255 255 255 / 0.06), 0 1px 2px rgb(0 0 0 / 0.6)", "purpose": "Active segment in a segmented control." },
+      { "name": "panel-lift", "value": "0 1px 0 rgb(242 239 232 / 0.06) inset, 0 40px 80px -40px rgb(0 0 0 / 0.95)", "purpose": "Consoles and the pricing spec sheet." },
+      { "name": "modal-lift", "value": "0 1px 0 rgb(242 239 232 / 0.07) inset, 0 40px 100px -30px rgb(0 0 0 / 0.95)", "purpose": "Modal panels." },
+      { "name": "dial-plate", "value": "0 0 0 1px rgb(242 239 232 / 0.06), 0 30px 80px -30px rgb(0 0 0 / 0.9), inset 0 2px 6px rgb(0 0 0 / 0.6)", "purpose": "The sunray dial behind each orb." },
+      { "name": "index-bar", "value": "0 1px 0 rgb(0 0 0 / 0.6)", "purpose": "Applied gold index (14x3px, gradient #f0dba0 to #c9a24c to #8a6d2e)." }
+    ],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Default easing for every state change, entrance and stamp." },
+      { "name": "control-transition", "value": "200ms", "purpose": "Button colour, border and press transitions." },
+      { "name": "overlay-enter", "value": "260ms ease-out-expo; from opacity 0, translateY(6px) scale(0.99)", "purpose": "Modals, drawer, toast." },
+      { "name": "seconds-hand", "value": "60s linear infinite rotation", "purpose": "The page's one clock: the hero dial's seconds hand." },
+      { "name": "index-run", "value": "1.2s linear infinite, staggered per index", "purpose": "Chronograph run: applied indices light in turn while Jarvis speaks." },
+      { "name": "hero-reveal", "value": "1s ease-out-expo, words rise from a mask, staggered", "purpose": "Hero headline entrance, motion-permitting only." },
+      { "name": "value-stamp", "value": "900ms ease-out-expo, 1px gold-bright underline scaleX 0 to 1 then fades", "purpose": "Feedback only, on a value that just changed (billing, scenario)." },
+      { "name": "reduced-motion", "value": "prefers-reduced-motion: reduce collapses all animation and transition durations to 0.01ms", "purpose": "Honoured globally." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Applied gold plate; the one bright-gold action per view.",
+      "html": "<button class=\"ds-btn-primary\">Book a Demo <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M7 17 17 7\"/><path d=\"M7 7h10v10\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border: 0; border-radius: 6px; font-family: var(--font-sans, 'Archivo', sans-serif); font-size: 0.875rem; font-weight: 600; color: var(--color-dial-950, #0b0b0c); background-color: var(--color-gold, #c9a24c); background-image: linear-gradient(180deg, rgb(255 255 255 / 0.16) 0%, rgb(255 255 255 / 0) 45%, rgb(0 0 0 / 0.1) 100%); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.4), inset 0 -1px 0 rgb(0 0 0 / 0.25), 0 1px 2px rgb(0 0 0 / 0.5), 0 8px 20px -10px rgb(0 0 0 / 0.9); cursor: pointer; transition: background-color 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-primary:hover { background-color: var(--color-gold-bright, #e3c278); } .ds-btn-primary:active { transform: translateY(1px); } .ds-btn-primary:focus-visible { outline: 2px solid var(--color-gold-bright, #e3c278); outline-offset: 3px; }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "Outlined companion action on black lacquer.",
+      "html": "<button class=\"ds-btn-secondary\">Explore Tiers</button>",
+      "css": ".ds-btn-secondary { display: inline-flex; align-items: center; gap: 8px; height: 44px; padding: 0 20px; border: 1px solid var(--color-line-strong, rgb(242 239 232 / 0.17)); border-radius: 6px; background: rgb(11 11 12 / 0.4); color: var(--color-ivory, #f2efe8); font-family: var(--font-sans, 'Archivo', sans-serif); font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: border-color 200ms cubic-bezier(0.16, 1, 0.3, 1), color 200ms cubic-bezier(0.16, 1, 0.3, 1), transform 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-secondary:hover { border-color: rgb(201 162 76 / 0.7); color: var(--color-gold-pale, #efdfb0); } .ds-btn-secondary:active { transform: translateY(1px); } .ds-btn-secondary:focus-visible { outline: 2px solid var(--color-gold-bright, #e3c278); outline-offset: 3px; }"
+    },
+    {
+      "name": "Quiet Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Text-weight gold action, e.g. Launch Jarvis.",
+      "html": "<button class=\"ds-btn-quiet\">Launch Jarvis Live Panel <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-quiet { display: inline-flex; align-items: center; gap: 6px; padding: 0; border: 0; background: none; color: var(--color-gold-bright, #e3c278); font-family: var(--font-sans, 'Archivo', sans-serif); font-size: 0.875rem; font-weight: 600; cursor: pointer; transition: color 200ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-btn-quiet:hover { color: var(--color-gold-pale, #efdfb0); } .ds-btn-quiet:focus-visible { outline: 2px solid var(--color-gold-bright, #e3c278); outline-offset: 3px; border-radius: 4px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Black lacquer well with a printed ring; ring turns 2px gold on focus.",
+      "html": "<label class=\"ds-field\"><span class=\"ds-field-label\">Work email</span><input class=\"ds-input\" type=\"email\" placeholder=\"you@company.ph\"></label>",
+      "css": ".ds-field { display: block; font-family: var(--font-sans, 'Archivo', sans-serif); } .ds-field-label { display: block; margin-bottom: 8px; font-size: 0.8125rem; font-weight: 500; color: var(--color-ivory-dim, #c9c4b9); } .ds-input { width: 100%; height: 44px; padding: 0 14px; border: 0; border-radius: 6px; background: var(--color-dial-950, #0b0b0c); color: var(--color-ivory, #f2efe8); font: inherit; font-size: 0.875rem; box-shadow: 0 0 0 1px var(--color-line-strong, rgb(242 239 232 / 0.17)); outline: none; transition: box-shadow 200ms; } .ds-input::placeholder { color: var(--color-stone, #9c968a); } .ds-input:focus { box-shadow: 0 0 0 2px var(--color-gold, #c9a24c); }"
+    },
+    {
+      "name": "Segmented Control",
+      "kind": "chip",
+      "refersTo": "segment-active",
+      "description": "Recessed track; the active segment is raised in dial-700 with gold-pale text.",
+      "html": "<div class=\"ds-seg\" role=\"tablist\"><button class=\"ds-seg-item is-active\" role=\"tab\" aria-selected=\"true\">Stream</button><button class=\"ds-seg-item\" role=\"tab\" aria-selected=\"false\">Quorum</button><button class=\"ds-seg-item\" role=\"tab\" aria-selected=\"false\">Ledger</button></div>",
+      "css": ".ds-seg { display: inline-flex; gap: 2px; padding: 2px; border-radius: 6px; background: var(--color-dial-900, #111112); box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.55), inset 0 0 0 1px var(--color-line, rgb(242 239 232 / 0.09)); font-family: var(--font-sans, 'Archivo', sans-serif); } .ds-seg-item { padding: 6px 12px; border: 0; border-radius: 4px; background: transparent; color: var(--color-stone, #9c968a); font: inherit; font-size: 0.8125rem; font-weight: 500; cursor: pointer; transition: color 200ms, background-color 200ms; } .ds-seg-item:hover { color: var(--color-ivory, #f2efe8); } .ds-seg-item.is-active { background: var(--color-dial-700, #24221f); color: var(--color-gold-pale, #efdfb0); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.06), 0 1px 2px rgb(0 0 0 / 0.6); } .ds-seg-item:focus-visible { outline: 2px solid var(--color-gold-bright, #e3c278); outline-offset: 3px; }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Stone items; the active item is ivory with an applied index bar beneath.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-item is-active\" href=\"#\">Home</a><a class=\"ds-nav-item\" href=\"#\">How It Works</a><a class=\"ds-nav-item\" href=\"#\">Tiers</a><a class=\"ds-nav-item\" href=\"#\">Contact</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 4px; padding: 12px; background: rgb(11 11 12 / 0.9); border-bottom: 1px solid var(--color-line, rgb(242 239 232 / 0.09)); font-family: var(--font-sans, 'Archivo', sans-serif); } .ds-nav-item { position: relative; padding: 8px 14px; border-radius: 6px; font-size: 0.875rem; font-weight: 500; color: var(--color-stone, #9c968a); text-decoration: none; transition: color 200ms; } .ds-nav-item:hover { color: var(--color-ivory, #f2efe8); } .ds-nav-item.is-active { color: var(--color-ivory, #f2efe8); } .ds-nav-item.is-active::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 14px; height: 3px; border-radius: 1px; background: linear-gradient(180deg, #f0dba0 0%, #c9a24c 55%, #8a6d2e 100%); box-shadow: 0 1px 0 rgb(0 0 0 / 0.6); } .ds-nav-item:focus-visible { outline: 2px solid var(--color-gold-bright, #e3c278); outline-offset: 3px; }"
+    },
+    {
+      "name": "Dial Label",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Small-caps dial printing behind an applied index; the only section-label treatment, printed in the margin.",
+      "html": "<p class=\"ds-dial-label\"><span class=\"ds-index\" aria-hidden=\"true\"></span><span>Tri-strata architecture</span></p>",
+      "css": ".ds-dial-label { display: flex; align-items: flex-start; gap: 12px; margin: 0; font-family: var(--font-sans, 'Archivo', sans-serif); font-size: 0.72rem; line-height: 1.2; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: var(--color-ivory-dim, #c9c4b9); } .ds-index { display: inline-block; flex-shrink: 0; margin-top: 0.3rem; width: 14px; height: 3px; border-radius: 1px; background: linear-gradient(180deg, #f0dba0 0%, #c9a24c 55%, #8a6d2e 100%); box-shadow: 0 1px 0 rgb(0 0 0 / 0.6); }"
+    },
+    {
+      "name": "Billing Toggle",
+      "kind": "custom",
+      "refersTo": "segment-track",
+      "description": "Recessed round track with an applied-metal thumb; a circle because it is an instrument.",
+      "html": "<button class=\"ds-toggle\" role=\"switch\" aria-checked=\"true\" aria-label=\"Annual billing\"><span class=\"ds-toggle-thumb\"></span></button>",
+      "css": ".ds-toggle { position: relative; width: 52px; height: 28px; padding: 3px; border: 0; border-radius: 9999px; background: var(--color-dial-900, #111112); box-shadow: inset 0 1px 2px rgb(0 0 0 / 0.55), inset 0 0 0 1px var(--color-line, rgb(242 239 232 / 0.09)); cursor: pointer; } .ds-toggle-thumb { display: block; width: 22px; height: 22px; border-radius: 9999px; background-color: var(--color-gold, #c9a24c); background-image: linear-gradient(180deg, rgb(255 255 255 / 0.16) 0%, rgb(255 255 255 / 0) 45%, rgb(0 0 0 / 0.1) 100%); box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.4), inset 0 -1px 0 rgb(0 0 0 / 0.25), 0 1px 2px rgb(0 0 0 / 0.5); transition: transform 300ms cubic-bezier(0.16, 1, 0.3, 1); } .ds-toggle[aria-checked=\"true\"] .ds-toggle-thumb { transform: translateX(24px); } .ds-toggle:focus-visible { outline: 2px solid var(--color-gold-bright, #e3c278); outline-offset: 3px; }"
+    },
+    {
+      "name": "Spec Panel",
+      "kind": "card",
+      "refersTo": "panel",
+      "description": "10px dial-900 panel with panel lift; featured items carry a gold metal hairline on top, not a glow.",
+      "html": "<div class=\"ds-panel\"><span class=\"ds-panel-feature\" aria-hidden=\"true\"></span><div class=\"ds-panel-head\"><span class=\"ds-tag\">T2</span><h3 class=\"ds-panel-title\">Growth</h3></div><p class=\"ds-panel-price\">&#8369;4,999<span> / month</span></p><p class=\"ds-panel-body\">Billed monthly with zero lock-in</p></div>",
+      "css": ".ds-panel { position: relative; overflow: hidden; max-width: 320px; padding: 32px; border-radius: 10px; background: var(--color-dial-800, #1b1a19); box-shadow: 0 0 0 1px var(--color-line, rgb(242 239 232 / 0.09)), 0 1px 0 rgb(242 239 232 / 0.06) inset, 0 40px 80px -40px rgb(0 0 0 / 0.95); font-family: var(--font-sans, 'Archivo', sans-serif); color: var(--color-ivory, #f2efe8); } .ds-panel-feature { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, #8a6d2e, #efdfb0 45%, #c9a24c 70%, #8a6d2e); } .ds-panel-head { display: flex; align-items: center; gap: 12px; } .ds-tag { padding: 2px 6px; border-radius: 4px; box-shadow: 0 0 0 1px rgb(201 162 76 / 0.35); font-size: 0.75rem; font-weight: 600; color: var(--color-gold, #c9a24c); font-variant-numeric: tabular-nums; } .ds-panel-title { margin: 0; font-size: 1.625rem; font-weight: 600; letter-spacing: -0.015em; } .ds-panel-price { margin: 24px 0 0; font-size: 2.75rem; font-weight: 600; font-stretch: 92%; letter-spacing: -0.025em; line-height: 1; color: var(--color-gold-bright, #e3c278); font-variant-numeric: tabular-nums lining-nums; } .ds-panel-price span { font-size: 0.8125rem; font-weight: 400; letter-spacing: 0; color: var(--color-stone, #9c968a); } .ds-panel-body { margin: 12px 0 0; font-size: 0.8125rem; color: var(--color-stone, #9c968a); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Chronograph Dial",
+    "overview": "The page is a watch face and Jarvis is the movement at its centre. The ground is black lacquer, the marks are applied gold indices, the words are ivory dial printing, and every figure on the site is read like a sub-register against one printed minute track. Gold is metal, not light: it is polished, bevelled and rationed by role. The orb is the only thing allowed to emit light.\n\nDensity is calm and editorial. Sections sit in one 1280px container with long vertical breath, headings are condensed Archivo set tight, labels are printed in the margin in small caps, and instruments (orb, dial, sub-registers, toggle, icon rings) are the only circles. Everything else is a 6px control or a 10px panel. Motion is horological: one seconds hand on a 60s revolution, a chronograph index run while Jarvis speaks, and short stamps that confirm a value changed.\n\nThe world explicitly rejects the glowing AI HUD it replaced: neon halos, glass cards, gradient text, pill eyebrows and rows of identical cards. The site is dark only.",
+    "keyCharacteristics": [
+      "Black lacquer ground with a faint sunray brush radiating from the dial centre.",
+      "Gold rationed by role: metal for the primary action and indices, bright for emphasis and active state.",
+      "Circles are instruments; controls are 6px, panels 10px.",
+      "Condensed Archivo via the width axis; JetBrains Mono only for code and log lines.",
+      "Section labels printed in the margin, never stacked above a heading.",
+      "Depth from recess and applied metal, not from light."
+    ],
+    "rules": [
+      { "name": "The Rationed Gold Rule", "body": "Gold carries a role, not a mood. Use metal gold for the primary action and applied indices, gold-bright for emphasis and active state, ivory and ivory-dim for reading and printing, and stone for tertiary text. A view has one bright-gold primary action.", "section": "colors" },
+      { "name": "The Only The Orb Glows Rule", "body": "Only the orb emits light. Nothing else on the page has glows, gradient text or glass. Gold gradients are allowed only as metal finishes (plate bevel, index bars, the popular tier's top hairline), never as light or as text fill.", "section": "colors" },
+      { "name": "The Dark Only Rule", "body": "The site is dark only, by owner commitment. There is no light mode and no light-mode tokens.", "section": "colors" },
+      { "name": "The Largest Step Rule", "body": "The hero dial print is the largest type on the site. Section h2s never exceed 2.75rem, and no other element may be set larger than the hero.", "section": "typography" },
+      { "name": "The Width Axis Rule", "body": "Condense with font-stretch, not with a second family: about 88% for the hero, 92% for section heads and prices, 90% for register numerals, and 100% for body.", "section": "typography" },
+      { "name": "The Mono Is Data Rule", "body": "JetBrains Mono appears only where the content is code or a log line. It is never used for labels, headings or decoration.", "section": "typography" },
+      { "name": "The Margin Label Rule", "body": "A section's label is printed as dial text in the margin (SectionHeader): in the left column on desktop, and after the copy on mobile. On the Jarvis instrument the label is printed along the bezel. Never place a kicker or eyebrow above a heading.", "section": "typography" },
+      { "name": "The Clip Not Hide Rule", "body": "Never use overflow-x hidden on an ancestor of sticky content. The app root uses overflow-x clip.", "section": "layout" },
+      { "name": "The Metal Not Light Rule", "body": "Shadows are black and fall downward. A gold surface is bevelled, not lit. Only the orb has bloom.", "section": "elevation" },
+      { "name": "The Circles Are Instruments Rule", "body": "Full circles are reserved for instruments: the orb, the dial plates, the KPI sub-registers, the billing toggle, icon rings, status dots and the round social bezels. Controls use 6px corners and panels and the floating launcher use 10px. Small tags (tier codes, \"Save 20%\") use 4px. There are no pills for labels or badges.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep the site dark. Black lacquer (dial-950) is the only ground.",
+      "Do ration gold by role: metal gold for the primary action and applied indices, gold-bright for emphasis and active state, ivory and ivory-dim for reading and dial printing, and stone for tertiary text.",
+      "Do reserve circles for instruments (orb, dial, sub-registers, toggle, icon rings). Use 6px for controls and 10px for panels and the floating launcher.",
+      "Do condense headings with Archivo's width axis: about 88% for the hero and 92% for section heads.",
+      "Do print section labels in the margin with SectionHeader (left column on desktop, after the copy on mobile), or along the bezel on the Jarvis instrument.",
+      "Do show selection as a recessed track with the active segment raised in dial-700 and gold-pale text.",
+      "Do limit motion to the 60s seconds hand, the chronograph index run while Jarvis speaks, the hero word reveal and feedback-only value stamps, and honour reduced motion globally.",
+      "Do label placeholder metrics and testimonials \"Illustrative figures, pending launch data\".",
+      "Do use overflow-x clip, never hidden, on any ancestor of sticky content."
+    ],
+    "donts": [
+      "Don't let anything but the orb emit light: no glows, halos, gradient text or glass surfaces.",
+      "Don't set any type larger than the hero dial print, or a section h2 above 2.75rem.",
+      "Don't use JetBrains Mono for anything other than code and log lines (console URL, stream log, quorum readouts, model id).",
+      "Don't place a kicker or eyebrow above a heading, and don't print labels as pill badges.",
+      "Don't mark placeholder data as \"Verified\".",
+      "Don't use flat gold for the primary action. It is always the applied-metal plate."
+    ]
+  }
+}
